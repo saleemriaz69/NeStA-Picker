@@ -11,8 +11,8 @@ NeStA-Picker is a fast, zero-fuss CLI for Completionists that suggests the next 
 ## Demo
 
 ```bash
-# Using pnpx (no installation required)
-alias nesta='pnpx https://github.com/ImBIOS/NeStA-Picker'
+# Using npx (no installation required)
+alias nesta='npx https://github.com/ImBIOS/NeStA-Picker'
 nesta pick --game "Hades"      # Suggest next achievement for Hades
 nesta pick --random             # Suggest a random achievement from your library
 nesta history                   # Show last 50 picks
@@ -20,7 +20,7 @@ nesta config steam.steamId 7656119...
 nesta config steam.apiKey sk-...
 ```
 
-Note: use `pnpm dlx` if you prefer pnpm.
+Note: use `pnpm dlx` or `pnpx` if you prefer pnpm.
 
 ## Install
 

